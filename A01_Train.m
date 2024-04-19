@@ -22,10 +22,10 @@ Train.vel = 120/3.6;          % Train velocity [m/s]
 % -- Mechanical properties --
 
 % File loading path
-Train.Load.path = '';
+Train.Load.path = 'property/';
 
 % Defnintion of successive vehicles
-veh_num = 1; run([Train.Load.path,'TrainProp_Manchester_BenchMark']);
+% veh_num = 1; run([Train.Load.path,'TrainProp_Manchester_BenchMark']);
 
 % Optional: To add more successive vehicles to the train model, define
 %   each additional vehicle/wagon as follows. Simply define the correct
@@ -37,14 +37,14 @@ veh_num = 1; run([Train.Load.path,'TrainProp_Manchester_BenchMark']);
 % Additional vehicle/wagon properties included in TTB-2D are:
 
 % % AVE S103 ICE3 configuration with 8 coaches
-% veh_num = 1; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C1']);
-% veh_num = 2; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C2367']);
-% veh_num = 3; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C2367']);
-% veh_num = 4; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C45']);
-% veh_num = 5; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C45']);
-% veh_num = 6; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C2367']);
-% veh_num = 7; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C2367']);
-% veh_num = 8; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C8']);
+veh_num = 1; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C1']);
+veh_num = 2; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C2367']);
+veh_num = 3; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C2367']);
+veh_num = 4; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C45']);
+veh_num = 5; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C45']);
+veh_num = 6; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C2367']);
+veh_num = 7; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C2367']);
+veh_num = 8; run([Train.Load.path,'TrainProp_AVE_S103_ICE3_Velaro_E_C8']);
 
 % % Eurostar configuration
 % veh_num = 1; run([Train.Load.path,'TrainProp_Eurostar_Locomotive']);

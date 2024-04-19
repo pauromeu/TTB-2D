@@ -101,10 +101,10 @@ Beam.Mesh.Ele.num_per_spacing = 2;
 Track.Rail.Mesh.Ele.num_per_spacing = 2;
 
 % -- Approach distance --
-Calc.Profile.minL_Approach = 30;    % Approach distance [m]
+Calc.Profile.minL_Approach = 100;    % Approach distance [m]
 
 % -- Distance after crossing -- (To allow for free vibration)
-Calc.Profile.minL_After = 30;   % [m] (Default value = 10)
+Calc.Profile.minL_After = 100;   % [m] (Default value = 10)
 
 % ----------------- Calculation options and variables ---------------------
 
@@ -112,7 +112,7 @@ Calc.Profile.minL_After = 30;   % [m] (Default value = 10)
 Calc.Options.calc_beam_sections = [Beam.Prop.L/2];      % (Default = [])
 
 % Time step
-Calc.Solver.max_accurate_frq = 500;     % [Hz]
+Calc.Solver.max_accurate_frq = 1000;     % [Hz]
 
 % Consider VBI
 Calc.Options.VBI = 1;        % VBI is considered (default)
@@ -138,7 +138,7 @@ Calc.Plot.Veh.P04_ContactForce_t = 1;   % Vehicle vertical contact force in time
 %Calc.Plot.Veh.P05_ContactForce_x = 1;   % Vehicle vertical contact force in space (1 = Values; 2 = With 0 limit)
 
 % ---- Model ----
-Calc.Plot.Model.P00_ModelVisualization = 1;% Sketch of model before performing simulation
+%Calc.Plot.Model.P00_ModelVisualization = 1;% Sketch of model before performing simulation
 %Calc.Plot.Model.P01_ModelDef = 50;       % Model vertical deformation at X% of the total simulated time
 %Calc.Plot.Model.P02_ModelRot = 10;       % Model rotation values at X% of the total simulated time
 
