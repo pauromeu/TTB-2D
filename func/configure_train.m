@@ -45,7 +45,8 @@ function Train = configure_train(option, load_path, seed)
             
         case 'Eurostar'
             % Add cases for Eurostar, Chinese Star, etc., as per the original script
-            % Example structure as above.
+            % TODO: add train configs
+            error('Train configuration %s has not yet been refactored', option);
 
         otherwise
             error('Unsupported train configuration option: %s', option);
