@@ -1,4 +1,4 @@
-function Beam = configure_bridge(T, seed)
+function Beam = configure_bridge(T)
 
 % A 50m bridge. Properties taken from:
 % He Xia, Nan Zhang, Guido De Roeck, Dynamic analysis of high speed railway 
@@ -16,7 +16,7 @@ Beam.BC.text = 'SP';    % Simply supported
 % Beam.BC.text = 'FF';    % Fixed-fixed
 
 % Modify stiffness by temperature
-Beam.Prop.E = get_stiffness_by_temp(seed, Beam.Prop.E, T);
+Beam.Prop.E = get_stiffness_by_temp(Beam.Prop.E, T);
 
 
 end

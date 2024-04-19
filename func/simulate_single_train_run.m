@@ -1,37 +1,30 @@
-function simulate_single_train_run(damage_factor, seed)
+function simulate_single_train_run(damage_factor, sample_number)
     % Simulates the impact of weather on train infrastructure and writes the results to a CSV file.
     %
     % Input:
     %   damage_factor - The factor by which the bridge's properties are reduced to simulate damage
-    %   seed - Seed for the random number generator for reproducibility
-
-
-    addpath(genpath('simulation'));
-    addpath(genpath('func'));
-
-    % Set the random seed for reproducibility
-    rng(seed);
 
     % Sample the temperature data
-    T = draw_weather_sample("temp", 1, seed); % Assuming this function returns a scalar value
+    T = draw_weather_sample("temp", 1); % Assuming this function returns a scalar value
 
     % Set the number of samples for the output
     N = 10;
 
     % Configure the train with a predefined function
     load_path = 'property/';
-    Train = configure_train('AVE_S103_ICE3', load_path, seed);
+    Train = configure_train('AVE_S103_ICE3', load_path);
     train_init_velocity = Train.vel;
 
     fprintf('Simulating with train speed %.2f, temperature %.2f, and damage factor %.2f\n', ...
         train_init_velocity, T, damage_factor);
 
-
     % Configure the track with a predefined function
     A02_Track; % Assuming this script sets up the Track structure
 
-    % Configure the bridge with temperature and random seed
-    Beam = configure_bridge(T, seed);
+    % Configure the bridge with temperature
+    Beam = configure_bridge(T);
+
+    ET = Beam.Prop.E;
 
     % Set options with a predefined function
     A04_Options; % Assuming this script sets up the Calc structure
@@ -57,5 +50,7 @@ function simulate_single_train_run(damage_factor, seed)
         file_name = 'damaged.csv';
     end
 
-    write_result(Sol, N, file_name, damage_factor, T, train_init_velocity, seed);
+    write_result(Sol, N, file_name, ...
+        damage_factor, T, train_init_velocity, ET,...
+        sample_number);
 end

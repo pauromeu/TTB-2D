@@ -2,6 +2,9 @@
 % Note that we generate continous damage factor values between 0.7 and 1.0, whereas in the 
 % original PTAE paper, the damage factor is discretized into 3 levels: 0.9, 0.8 and 0.7.
 
+addpath(genpath('simulation'));
+addpath(genpath('func'));
+
 % Number of damage cases to generate
 num_cases = 200;
 
@@ -12,12 +15,8 @@ sigma = (1.0 - 0.7) / 6; % Standard deviation set to place 99.7% of data within 
 % Preallocate array for damage factors
 damage_factors = zeros(1, num_cases);
 
-% Seed for random number generation to ensure reproducibility
-base_seed = 31415; % Choose a base seed for all random operations
-
 % Generate damage factors using truncated normal distribution
 for i = 1:num_cases
-    rng(base_seed + i); % Set seed for reproducibility and variability
     while true
         temp = normrnd(mu, sigma);
         if temp >= 0.7 && temp <= 1.0
@@ -30,7 +29,7 @@ end
 % Loop to simulate each damage case
 for i = 1:num_cases
     fprintf('Running damage case %d with damage factor %.2f...\n', i, damage_factors(i));
-    simulate_single_train_run(damage_factors(i), base_seed + i); % Pass seed to simulation
+    simulate_single_train_run(damage_factors(i), i); 
 end
 
 fprintf('All %d damage simulations completed.\n', num_cases);

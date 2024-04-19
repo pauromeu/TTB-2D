@@ -1,4 +1,4 @@
-function sample = draw_weather_sample(variable_name, sample_size, seed)
+function sample = draw_weather_sample(variable_name, sample_size)
     % Draws a sample from the distribution of a specified variable in the hourly weather data
     %
     % Input:
@@ -8,9 +8,6 @@ function sample = draw_weather_sample(variable_name, sample_size, seed)
     %
     % Output:
     %   sample - The drawn sample
-    
-    % Set the seed for the random number generator
-    rng(seed);
 
     weather_data  = load("property/zurich_2023-2024.mat").hourly_weather_data;
     

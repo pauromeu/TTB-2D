@@ -5,20 +5,19 @@ addpath(genpath('func'));
 
 load_path = 'property/';
 
-seed = 1;
-T = draw_weather_sample("temp", 1, seed);
+T = draw_weather_sample("temp", 1);
 N = 10;
 damage_factor = 0.9;
 
 % configure train
-Train = configure_train('AVE_S103_ICE3', load_path, 1);
+Train = configure_train('AVE_S103_ICE3', load_path);
 train_init_velocity = Train.vel;
 
 % ---- Track ----
 A02_Track;
 
 % ---- Bridge ----
-Beam = configure_bridge(T, seed);
+Beam = configure_bridge(T);
 
 % ---- Options ----
 A04_Options;

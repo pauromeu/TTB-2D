@@ -1,6 +1,6 @@
 function write_result( ...
     Sol, n, filename, ...
-    damage_factor, T, train_init_velocity, sample_number)
+    damage_factor, T, train_init_velocity, stiffness, sample_number)
     % Writes sampled data from given solution structures to a CSV file.
     % Inputs:
     %   Sol - A structure containing matrices .Beam.U.xt and .Beam.Acc.xt
@@ -19,6 +19,7 @@ function write_result( ...
         repmat(damage_factor, 1, size(u_sample, 2));
         repmat(T, 1, size(u_sample, 2));
         repmat(train_init_velocity, 1, size(u_sample, 2));
+        repmat(stiffness, 1, size(u_sample, 2));
         repmat(sample_number, 1, size(u_sample, 2));
     ];
     
@@ -28,9 +29,9 @@ function write_result( ...
         writematrix(combined_data.', filename, 'WriteMode', 'append', 'Delimiter', ',');
     else
         % File does not exist, write the data with headers
-        headers = [strcat("disp(mm)_sample", string(1:size(u_sample, 1))), ...
-                   strcat("acc_sample", string(1:size(acc_sample, 1))), ...
-                   "damage_factor", "temperature", "train_init_velocity", "sample_number"].';
+        headers = [strcat("disp[mm]_", string(1:size(u_sample, 1))), ...
+                   strcat("acc_", string(1:size(acc_sample, 1))), ...
+                   "damage_factor", "temperature", "train_init_velocity", "stiffness", "sample_number"].';
         % Create a full matrix including headers
         full_data = [headers, num2cell(combined_data)].';
         % Write to file with headers

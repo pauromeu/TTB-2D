@@ -1,13 +1,9 @@
-function Train = configure_train(option, load_path, seed)
+function Train = configure_train(option, load_path)
     % CONFIGURE_TRAIN Function to set up train configurations dynamically
     % with velocity drawn from a truncated normal distribution.
     % Input:
     %   option - A string specifying the type of train configuration.
     %   load_path - Path to the directory containing train configuration files.
-    %   seed - Seed for the random number generator to ensure reproducibility.
-
-    % Set the seed for reproducibility
-    rng(seed);
 
     % Draw a sample from a normal distribution with mean 160 and std 3
     velocity = normrnd(160, 3);
