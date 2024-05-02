@@ -20,7 +20,7 @@
 % ------------------------- Track irregularity ----------------------------
 
 % ---- Smooth ---- (Default)
-Calc.Profile.Type = 0;
+% Calc.Profile.Type = 0;
 
 % ---- FRA ---- 
 % Reference: Ladislav Fryba. Dynamics of Railway Bridges. Academia Praha, 1996
