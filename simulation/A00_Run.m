@@ -37,7 +37,7 @@ B00_Calculations;
 %% -------------------- Results processing and plotting --------------------
 
 % % Model deformation plot at a given instant in time
-% C01_ModelDeformationPlot(Calc,Model,Sol,Train);
+C01_ModelDeformationPlot(Calc,Model,Sol,Train);
 
 % % Time history plot of user selected model point
 % C02_TimeHistoryPlot(Model,Sol,Beam,Calc);
