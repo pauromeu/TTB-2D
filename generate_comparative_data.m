@@ -28,9 +28,9 @@ EnvironmentArgs = struct();
 EnvironmentArgs.temperature_C = 20.0;
 
 SimulationArgs = struct();
-SimulationArgs.freq = 1000;
+SimulationArgs.freq = 10;
 
-damage_factors = 0.7:0.1:1.0;
+damage_factors = 0.6:0.1:1.0;
 
 for i = 1:length(damage_factors)
     BridgeArgs.damage_factor = damage_factors(i);
