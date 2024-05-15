@@ -1,4 +1,4 @@
-function simulate_single_pass(VehicleArgs, BridgeArgs, EnvironmentArgs, SimulationArgs)
+function simulate_single_pass(VehicleArgs, BridgeArgs, EnvironmentArgs, SimulationArgs, FileArgs)
 
     Train = set_train(VehicleArgs);
 
@@ -29,14 +29,9 @@ function simulate_single_pass(VehicleArgs, BridgeArgs, EnvironmentArgs, Simulati
     % Run simulation
     [Sol, Model, Calc, Train, Track, Beam] = run_simulation(Train, Track, Beam, Calc);
 
-     % Write out solution to a CSV file
-     file_name = 'healthy.csv';
-     if damage_factor ~= 1
-         file_name = 'damaged.csv';
-     end
- 
-     write_result(Sol, N, file_name, ...
-         damage_factor, T, train_init_velocity, ET,...
-         sample_number);
+
+    BridgeArgs.stiffness = Beam.Prop.E_n(1);
+    % Save the results
+    save_result(Sol, FileArgs, BridgeArgs, VehicleArgs, SimulationArgs, EnvironmentArgs);
 end
 
