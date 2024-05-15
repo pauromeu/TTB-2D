@@ -18,7 +18,7 @@ VehicleArgs.load_std = 0.0;
 
 BridgeArgs = struct();
 BridgeArgs.damage_factor = 0.7;
-BridgeArgs.damage_center_location = 0.5;
+BridgeArgs.damage_center_location = 0.2;
 BridgeArgs.damage_num_elements = 2;
 BridgeArgs.damage_local = true;
 BridgeArgs.num_sensors = 10;
@@ -28,11 +28,16 @@ EnvironmentArgs = struct();
 EnvironmentArgs.temperature_C = 20.0;
 
 SimulationArgs = struct();
-SimulationArgs.freq = 10;
+SimulationArgs.freq = 1000;
+
+FileArgs = struct();
+FileArgs.file_name = 'comparative.csv';
+FileArgs.date = datetime('now');
+FileArgs.sample_number = -1; % -1 for automatic numbering
 
 damage_factors = 0.6:0.1:1.0;
 
 for i = 1:length(damage_factors)
     BridgeArgs.damage_factor = damage_factors(i);
-    simulate_single_pass(VehicleArgs, BridgeArgs, EnvironmentArgs, SimulationArgs);
+    simulate_single_pass(VehicleArgs, BridgeArgs, EnvironmentArgs, SimulationArgs, FileArgs);
 end
