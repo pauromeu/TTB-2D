@@ -10,8 +10,8 @@ function simulate_single_pass(VehicleArgs, BridgeArgs, EnvironmentArgs, Simulati
     A04_Options;
     
     if Calc.Solver.max_accurate_frq ~= SimulationArgs.freq
-        Calc.Solver.max_accurate_frq = SimulationArgs.freq
-        disp("Using solver freq of " + SimulationArgs.freq + "Hz.")
+        Calc.Solver.max_accurate_frq = SimulationArgs.freq;
+        disp("Using solver freq of " + SimulationArgs.freq + "Hz.");
     end
 
     % -- Model geometry --
